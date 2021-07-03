@@ -297,7 +297,7 @@ int main() {
 	printf("Solve: %.4f\n", (clock() - pre)/(double)CLOCKS_PER_SEC);
 	pre = clock();
 
-	// check_ans();
+	check_ans();
 
 	printf("Check Ans: %.4f\n", (clock() - pre)/(double)CLOCKS_PER_SEC);
 	pre = clock();
