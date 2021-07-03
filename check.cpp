@@ -33,13 +33,15 @@ inline void read(int &x){
 
 int n, m;
 
-const double eps = 1e-4;
+const double eps = 1e-3;
 const int maxn = 85000;
 double a[maxn][maxn], res[maxn][maxn];
 vector<pair<int,double> > Lh[maxn], Ur[maxn];
 
 inline void init() {
     read(n); read(n); read(m);
+	// memset(a, 0, sizeof(a));
+	// memset(res, 0, sizeof(res));
     rep(i, 1, m) {
         int x, y; double z;
         read(x); read(y); scanf("%lf", &z);
@@ -67,6 +69,7 @@ inline void solve() {
 	bool flag = 1;
 	rep(i, 1, n) rep(j, 1, n) {
 		if (fabs((res[i][j] - a[i][j]) / max(fabs(a[i][j]), 1.)) > eps) {
+			printf("%.10f %.10f\n", res[i][j], a[i][j]);
 			flag = 0; break;
 		}
 	}

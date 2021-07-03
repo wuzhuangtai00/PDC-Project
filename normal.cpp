@@ -33,7 +33,7 @@ inline void read(int &x){
 
 int n, m;
 
-const double eps = 1e-5;
+const double eps = 1e-7;
 const int maxn = 85000;
 double a[maxn][maxn];
 set<pin> pos;
@@ -49,23 +49,25 @@ inline void init() {
 }
 int cur[maxn];
 inline void solve() {
-	fprintf(l, "%d\n", n);
-	fprintf(u, "%d\n", n);
+	// fprintf(l, "%d\n", n);
+	// fprintf(u, "%d\n", n);
 	rep(i, 1, n) {
 		// printf("!%d\n", i);
 		vector<int> nz; nz.clear();
 		rep(j, i, n) {
-			if (fabs(a[i][j]) > eps) nz.pb(j);
-			fprintf(u, "%d %d %.8f\n", i, j, a[i][j]);
+			if (fabs(a[i][j]) > eps){
+				nz.pb(j);
+				// fprintf(u, "%d %d %.8f\n", i, j, a[i][j]);
+			}
 		}
 		int sz = (int)nz.size() - 1;
 		if(fabs(a[i][i]) < eps) continue;
 		int cnt = 0;
-		fprintf(l, "%d %d %.8f\n", i, i, 1.0);
+		// fprintf(l, "%d %d %.8f\n", i, i, 1.0);
 		rep(k, i + 1, n) {
 			if (fabs(a[k][i]) < eps) continue;
 			double d = a[k][i] / a[i][i];
-			fprintf(l, "%d %d %.8f\n", k, i, d);
+			// fprintf(l, "%d %d %.8f\n", k, i, d);
 			for(int t = 0; t <= sz; t++) {
 				int p = nz[t];
 				a[k][p] -= a[i][p] * d;
