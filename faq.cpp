@@ -82,7 +82,7 @@ int main() {
 	gettimeofday(&endsss, NULL);
 
 	 delta = ((endsss.tv_sec  - starts.tv_sec) * 1000000u + 
-    	     ends.tv_usec - starts.tv_usec) / 1.e6;
+    	     endsss.tv_usec - starts.tv_usec) / 1.e6;
 	printf("Solve: %.4f\n", delta)
 	// output();
 }
