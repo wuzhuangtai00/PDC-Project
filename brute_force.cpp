@@ -124,5 +124,5 @@ int main() {
 
 	check_ans();
 
-	output();
+	// output();
 }
