@@ -211,7 +211,7 @@ inline void solve() {
                 printf("%.10f %.10f\n", Left[y][curpos].w2, Left[x][0].w2);
                 printf("%.10f\n", d);
                 for(unsigned i = 0; i < nz.size(); i++) {
-                    int k = nz[i];
+                    int k = nz[i]; if (k >= upper[y]) break;
                     Right[y][k].w2 -= Right[x][k].w2 * d;
                 }
                 int wpos = 0; int iter = poscnt - 1;
