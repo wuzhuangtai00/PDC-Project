@@ -83,6 +83,6 @@ int main() {
 
 	 delta = ((endsss.tv_sec  - starts.tv_sec) * 1000000u + 
     	     endsss.tv_usec - starts.tv_usec) / 1.e6;
-	printf("Solve: %.4f\n", delta)
+	printf("Solve: %.4f\n", delta);
 	// output();
 }
