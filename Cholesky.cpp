@@ -182,10 +182,10 @@ inline void solve() {
         // printRight(1, 0);
         rep(k, 0, upper[x] - 1) {
             info w = Right[x][k];
-            if(fabs(w.w2) > 1e-7) {
+            // if(fabs(w.w2) > 1e-7) {
                 cntU++;
                 U[cntU] = mk(mk(x, w.w1), w.w2);
-            }
+            // }
         }
         cntU++;
         U[cntU] = mk(mk(x, Left[x][0].w1), Left[x][0].w2);
