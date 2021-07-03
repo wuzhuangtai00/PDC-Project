@@ -179,14 +179,16 @@ inline void solve() {
 
     rep(x, 1, n) {
         cntL++;
-        L[cntL] = mk(mk(x, x), 1);
+        assert(Left[x][0].w2 > 0);
+        double www = sqrt(Left[x][0].w2);
+        L[cntL] = mk(mk(x, x), www1);
         // printRight(1, 0);
         vector<int> nz; nz.clear();
         rep(k, 0, upper[x] - 1) {
             info w = Right[x][k];
             if(fabs(w.w2) > 1e-7) {
                 cntU++;
-                U[cntU] = mk(mk(x, w.w1), w.w2);
+                U[cntU] = mk(mk(x, w.w1), w.w2 / www);
                 nz.pb(k);
             }
         }
@@ -236,7 +238,7 @@ inline void solve() {
         }
     }
 }
-
+/*
 inline void check_ans() {
     static vector<pair<int, double> > Ls[maxn], Ul[maxn];
 	rep(i, 1, cntL) {
@@ -284,7 +286,7 @@ inline void output() {
 		printf("%d %d %.8f\n", x.w1.w1, x.w1.w2, x.w2);
 	}
 }
-
+*/
 int main() {
 	pre = clock();
 
@@ -298,7 +300,7 @@ int main() {
 	printf("Solve: %.4f\n", (clock() - pre)/(double)CLOCKS_PER_SEC);
 	pre = clock();
 
-	check_ans();
+	// check_ans();
 
 	printf("Check Ans: %.4f\n", (clock() - pre)/(double)CLOCKS_PER_SEC);
 	pre = clock();
