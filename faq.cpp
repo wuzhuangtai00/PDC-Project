@@ -55,7 +55,7 @@ inline void solve() {
 		if(fabs(a[i][i]) < eps) continue;
 		#pragma omp parallel for num_threads(12) schedule(dynamic)
 			rep(k, i + 1, n) {
-				printf("%d %d\n", k, omp_get_thread_num());
+				// printf("%d %d\n", k, omp_get_thread_num());
 				if(fabs(a[k][i]) < eps) continue; double d = a[k][i] / a[i][i];
 				// #pragma omp for
 				for(unsigned i = 0; i < nz.size(); i++) {
