@@ -62,9 +62,9 @@ inline void solve() {
 		rep(j, 1, cnt) {
 			int k = cur[j];
 			double d = a[k][i] / a[i][i];
-			// #pragma omp for
-			for(int j = 0;  <= sz; j++) {
-				a[k][nz[j]] -= a[i][nz[j]] * d;
+			for(int t = 0; t <= sz; t++) {
+				int p = nz[t];
+				a[k][p] -= a[i][p] * d;
 			}
 		}
 		
