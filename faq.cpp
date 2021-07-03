@@ -46,20 +46,25 @@ inline void init() {
 		a[y][x] = z;
     }
 }
-
+int cur[maxn];
 inline void solve() {
 	rep(i, 1, n) {
 		// printf("!%d\n", i);
 		vector<int> nz; nz.clear();
 		per(j, n, i) if (fabs(a[i][j]) > eps) nz.pb(j);
 		if(fabs(a[i][i]) < eps) continue;
+		int cnt = 0;
 		rep(k, i + 1, n) {
-			if(fabs(a[k][i]) < eps) continue; double d = a[k][i] / a[i][i];
+			if(fabs(a[k][i]) > eps) cur[++cnt] = k;
+		}
+#pragma omp parallel for num_threads(12) schedule(dynamic, 1)
+		rep(j, 1, cnt) {
+			int k = a[k][i];
+			double d = a[k][i] / a[i][i];
 			// #pragma omp for
 			int sz = nz.size() - 1;
-#pragma omp parallel for num_threads(12) schedule(dynamic, 1)
-			for(int i = 0; i <= sz; i++) {
-				a[k][nz[i]] -= a[i][nz[i]] * d;
+			for(int j = 0; j <= sz; j++) {
+				a[k][nz[j]] -= a[i][nz[j]] * d;
 			}
 		}
 		
