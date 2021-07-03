@@ -58,7 +58,7 @@ inline void solve() {
 		rep(k, i + 1, n) {
 			if(fabs(a[k][i]) > eps) cur[++cnt] = k;
 		}
-#pragma omp parallel for num_threads(12) schedule(dynamic, 1)
+// #pragma omp parallel for num_threads(12) schedule(dynamic, 1)
 		rep(j, 1, cnt) {
 			int k = a[k][i];
 			double d = a[k][i] / a[i][i];
