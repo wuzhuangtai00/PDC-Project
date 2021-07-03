@@ -78,13 +78,13 @@ set<int> Ls[maxn], Ul[maxn];
 inline void check_ans() {
 	for(unsigned i = 0; i < L.size(); i++) {
 		data x = L[i];
-		Lm[x.x][x.y] = x.z;
+		Lm[x.x][x.y] = x.v;
 		Ls[x.y].insert(x.x);
 	}
 
 	for(unsigned i = 0; i < U.size(); i++) {
 		data x = U[i];
-		Um[x.x][x.y] = x.z;
+		Um[x.x][x.y] = x.v;
 		Ul[x.x].insert(x.y);
 	}
 	rep(j, 1, n) {
