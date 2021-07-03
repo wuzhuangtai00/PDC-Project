@@ -3,6 +3,7 @@
 #include<cstdlib>
 #include<algorithm>
 #include<ctime>
+#include<omp.h>
 #include<vector>
 #include<set>
 #include<cmath>
