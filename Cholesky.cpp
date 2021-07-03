@@ -66,6 +66,7 @@ inline void init() {
         if(x < y) swap(x, y);
         w[x][y] = z;
         w[y][x] = z;
+        assert(fabs(z) > eps);
         pos[x].pb(mk(y, z));
         rec.insert(mk(x, y));
     }
