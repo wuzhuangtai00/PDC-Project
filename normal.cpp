@@ -59,7 +59,7 @@ inline void solve() {
 			if(fabs(a[k][i]) > eps) cur[++cnt] = k;
 		}
 		rep(j, 1, cnt) {
-			int k = a[k][i];
+			int k = cur[k];
 			double d = a[k][i] / a[i][i];
 			for(int j = 0;  j <= sz; j++) {
 				int p = nz[j];
