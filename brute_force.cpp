@@ -4,11 +4,13 @@
 #include<algorithm>
 #include<vector>
 #include<set>
-#define pb push_back
-#define mk make_pair
 #define rep(i, a, b) for(int i = (a); i <= (b); i++)
 #define per(i, a, b) for(int i = (a); i >= (b); i--)
 using namespace std;
+#define pb push_back
+#define mk make_pair
+#define w1 first
+#define w2 second
 
 typedef pair<int,int> pin;
 
