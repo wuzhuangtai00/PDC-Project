@@ -96,14 +96,14 @@ clock_t pre;
 
 bool vis[maxn];
 
-int cnt = 0;
+long long cnt = 0;
 
 inline info* mlc(int sz) {
     cnt += sz;
-    // if(cnt > maxm) {
+    if(cnt > 4000000000ll) {
         // ptr = pool2;
-        // assert(0);
-    // }
+        assert(0);
+    }
     info* tmp = ptr;
     ptr = ptr + sz;
     return tmp;
