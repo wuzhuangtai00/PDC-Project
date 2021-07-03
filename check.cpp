@@ -33,10 +33,10 @@ inline void read(int &x){
 
 int n, m;
 
-const double eps = 1e-5;
+const double eps = 1e-4;
 const int maxn = 85000;
-double a[maxn][maxn];
-set<pin> pos;
+double a[maxn][maxn], res[maxn][maxn];
+vector<pair<int,double> > Lh[maxn], Ur[maxn];
 
 inline void init() {
     read(n); read(n); read(m);
@@ -46,41 +46,39 @@ inline void init() {
         a[x][y] = z;
 		a[y][x] = z;
     }
+	fscanf(l, "%d", &n);
+	int x, y; double z;
+	while(fscanf(l, "%d %d %lf", &x, &y, &z)!=EOF) {
+		Lh[y].pb(mk(x, z));
+		// l[x][y] = z;
+	}
+	fscanf(u, "%d", &n);
+	while(fscanf(u, "%d %d %lf", &x, &y, &z)!=EOF) {
+		Ur[x].pb(mk(y, z));
+	}
 }
 int cur[maxn];
 inline void solve() {
-	fprintf(l, "%d\n", n);
-	fprintf(u, "%d\n", n);
-	rep(i, 1, n) {
-		// printf("!%d\n", i);
-		vector<int> nz; nz.clear();
-		rep(j, i, n) {
-			if (fabs(a[i][j]) > eps) nz.pb(j);
-			fprintf(u, "%d %d %.8f\n", i, j, a[i][j]);
+	rep(j, 1, n) {
+		for(pair<int,double> x: Lh[j]) for(pair<int,double> y: Ur[j]) {
+			res[x.w1][y.w1] += x.w2 * y.w2;
 		}
-		int sz = (int)nz.size() - 1;
-		if(fabs(a[i][i]) < eps) continue;
-		int cnt = 0;
-		fprintf(l, "%d %d %.8f\n", i, i, 1.0);
-		rep(k, i + 1, n) {
-			if (fabs(a[k][i]) < eps) continue;
-			double d = a[k][i] / a[i][i];
-			fprintf(l, "%d %d %.8f\n", k, i, d);
-			for(int t = 0; t <= sz; t++) {
-				int p = nz[t];
-				a[k][p] -= a[i][p] * d;
-			}
-		}
-		
 	}
+	bool flag = 1;
+	rep(i, 1, n) rep(j, 1, n) {
+		if (fabs((res[i][j] - a[i][j]) / max(fabs(a[i][j]), 1.)) > eps) {
+			flag = 0; break;
+		}
+	}
+	if(flag)puts("Correct!");else puts("Error(");
 }
 struct timeval starts, endsss;
 int main(int argc, char** argv) {
 	gettimeofday(&starts, NULL);
 	puts(argv[0]);
 	freopen(argv[1], "r", stdin);
-	l = fopen(argv[2], "w");
-	u = fopen(argv[3], "w");
+	l = fopen(argv[2], "r");
+	u = fopen(argv[3], "r");
 
     init();
 
