@@ -61,26 +61,26 @@ inline void solve() {
 		}
 	}
 }
-struct timeval start, end;
+struct timeval starts, ends;
 int main() {
-	gettimeofday(&start, NULL);
+	gettimeofday(&starts, NULL);
 
     init();
 
-	gettimeofday(&end, NULL);
+	gettimeofday(&ends, NULL);
 
-	double delta = ((end.tv_sec  - start.tv_sec) * 1000000u + 
-    	     end.tv_usec - start.tv_usec) / 1.e6;
+	double delta = ((ends.tv_sec  - starts.tv_sec) * 1000000u + 
+    	     ends.tv_usec - starts.tv_usec) / 1.e6;
 
 	printf("Init: %.4f\n", delta)
 
-	gettimeofday(&start, NULL);
+	gettimeofday(&starts, NULL);
 
     solve();
 
-	gettimeofday(&end, NULL);
+	gettimeofday(&ends, NULL);
 
-	double delta = ((end.tv_sec  - start.tv_sec) * 1000000u + 
-    	     end.tv_usec - start.tv_usec) / 1.e6;
+	double delta = ((ends.tv_sec  - starts.tv_sec) * 1000000u + 
+    	     ends.tv_usec - starts.tv_usec) / 1.e6;
 	// output();
 }
