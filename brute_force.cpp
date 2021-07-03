@@ -88,7 +88,7 @@ inline void check_ans() {
 		Ul[x.x].insert(x.y);
 	}
 	rep(j, 1, n) {
-		for(int i: Ls[y]) for(int k: Ul[y]) {
+		for(int i: Ls[j]) for(int k: Ul[j]) {
 			a[i][k] -= Lm[i][j] * Um[j][k];
 		}
 	}
