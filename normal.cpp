@@ -61,8 +61,8 @@ inline void solve() {
 		rep(j, 1, cnt) {
 			int k = cur[j];
 			double d = a[k][i] / a[i][i];
-			for(int j = 0;  j <= sz; j++) {
-				int p = nz[j];
+			for(int t = 0; t <= sz; t++) {
+				int p = nz[t];
 				a[k][p] -= a[i][p] * d;
 			}
 		}
