@@ -60,7 +60,7 @@ inline void solve() {
 		}
 // #pragma omp parallel for num_threads(12) schedule(dynamic, 1)
 		rep(j, 1, cnt) {
-			int k = a[k][i];
+			int k = cur[k];
 			double d = a[k][i] / a[i][i];
 			// #pragma omp for
 			for(int j = 0;  <= sz; j++) {
