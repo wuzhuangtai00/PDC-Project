@@ -103,7 +103,7 @@ int main(int argc, char** argv) {
     	     endsss.tv_usec - starts.tv_usec) / 1.e6;
 	printf("Solve: %.4f\n", delta);
 
-	fclose(l);
-	fclose(u);
+	// fclose(l);
+	// fclose(u);
 	// output();
 }
