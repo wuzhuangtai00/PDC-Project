@@ -51,15 +51,12 @@ inline void solve() {
 	rep(i, 1, n) {
 		// printf("!%d\n", i);
 		vector<int> nz; nz.clear();
-		per(j, n, i) if (fabs(a[i][j]) > eps) nz.pb(j);
+		rep(j, i, n) if (fabs(a[i][j]) > eps) nz.pb(j);
 		int sz = (int)nz.size() - 1;
 		if(fabs(a[i][i]) < eps) continue;
 		int cnt = 0;
 		rep(k, i + 1, n) {
-			if(fabs(a[k][i]) > eps) cur[++cnt] = k;
-		}
-		rep(j, 1, cnt) {
-			int k = cur[j];
+			if (fabs(a[k][i]) < eps) continue;
 			double d = a[k][i] / a[i][i];
 			for(int t = 0; t <= sz; t++) {
 				int p = nz[t];
