@@ -31,7 +31,7 @@ inline void read(int &x){
 int n, m;
 
 const double eps = 1e-5;
-const int maxn = 12000;
+const int maxn = 85000;
 double a[maxn][maxn];
 double pra[maxn][maxn];
 set<pin> pos;
