@@ -18,7 +18,7 @@ using namespace std;
 typedef pair<int,int> pin;
 
 typedef pair<int, double> info;
-const int maxm = 10000000;
+const int maxm = 100000000;
 info pool[maxm];
 info *ptr;
 set<pin> rec;
@@ -157,6 +157,9 @@ inline void solve() {
         if (vis[i]) continue;
         dfs(i, 0);
     }
+    // rep(i, 1, n) {
+        // printf("%d %d\n", stpos[i], parent[i]);
+    // }
     printf("Block1: %.4f\n", (clock() - pre)/(double)CLOCKS_PER_SEC);
     
 
@@ -192,6 +195,7 @@ inline void solve() {
             // printLeft(y, 0);
             // printLeft(y, 1);
             // printf("%d %d %.3f\n",Left[y][curpos].w1, x, Left[y][curpos].w2);
+            // putchar('!');printLeft(y, curpos);
             double d = Left[y][curpos].w2 / Left[x][0].w2;
             if (d != 0) {
                 cntL++;
@@ -206,14 +210,18 @@ inline void solve() {
                     // printf("%d %d\n", Left[y][wpos].w1, Right[x][i].w1);
                     assert(Left[y][wpos].w1 == Right[x][i].w1);
                     Left[y][wpos].w2 -= Right[x][i].w2 * d;
+                    // printLeft(y, wpos);
                     wpos += stpos[poshis[iter]];
                     iter--;
                 }
+                // printf("?%d\n", curpos);
                 Left[y][curpos].w2 -= Left[x][0].w2 * d;
+                // printLeft(3, 1);
             }
 
-            y = parent[y];
             curpos += stpos[y];
+            y = parent[y];
+            // printf("???%d\n", stpos[y]);
         }
     }
 }

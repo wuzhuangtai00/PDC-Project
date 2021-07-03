@@ -15,14 +15,14 @@ using namespace std;
 #define w1 first
 #define w2 second
 
-const int n = 3;
+const int n = 10;
 const int maxn = 105;
 int a[maxn][maxn], b[maxn][maxn], c[maxn][maxn];
 
 int main(){
 	srand(time(NULL));
 	rep(i, 1, n) rep(j, 1, i) {
-		int w = rand() % 3;
+		int w = rand() % 3 + 1;
 		a[i][j] = b[j][i] = w;
 	}
 	rep(i, 1, n) rep(j, 1, n) rep(k, 1, n) c[i][k] += a[i][j] * b[j][k];
