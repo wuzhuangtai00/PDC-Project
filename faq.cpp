@@ -53,17 +53,15 @@ inline void solve() {
 		vector<int> nz; nz.clear();
 		per(j, n, i) if (fabs(a[i][j]) > eps) nz.pb(j);
 		if(fabs(a[i][i]) < eps) continue;
-		#pragma omp parallel for num_threads(12) schedule(dynamic)
-			rep(k, i + 1, n) {
-				#pragma omp task{
-				// printf("%d %d\n", k, omp_get_thread_num());
-				if(fabs(a[k][i]) < eps) continue; double d = a[k][i] / a[i][i];
-				// #pragma omp for
-				for(unsigned i = 0; i < nz.size(); i++) {
-					int p = nz[i];
-					a[k][p] -= a[i][p] * d;
-				}}
+		rep(k, i + 1, n) {
+			if(fabs(a[k][i]) < eps) continue; double d = a[k][i] / a[i][i];
+			// #pragma omp for
+			#pragma omp parallel for num_threads(12) schedule(dynamic)
+			for(unsigned i = 0; i < nz.size(); i++) {
+				int p = nz[i];
+				a[k][p] -= a[i][p] * d;
 			}
+		}
 		
 	}
 }
