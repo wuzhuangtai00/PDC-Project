@@ -51,8 +51,9 @@ inline void solve() {
 		vector<int> nz; nz.clear();
 		per(j, n, i) if (fabs(a[i][j]) > eps) nz.pb(j);
 		if(fabs(a[i][i]) < eps) continue;
-		// #pragma omp parallel for num_threads(12) schedule(dynamic)
+		#pragma omp parallel for num_threads(12) schedule(dynamic)
 		rep(k, i, n) {
+			printf("%d\n", k);
 			if(fabs(a[k][i]) < eps) continue; double d = a[k][i] / a[i][i];
 			// #pragma omp for
 			for(unsigned i = 0; i < nz.size(); i++) {
