@@ -20,7 +20,7 @@ typedef pair<int,int> pin;
 
 const double eps = 1e-3;
 typedef pair<int, double> info;
-const long long maxm = 10000000000;
+const int maxm = 2000000000;
 info pool[maxm];
 info *ptr;
 set<pin> rec;
