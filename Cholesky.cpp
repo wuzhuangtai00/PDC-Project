@@ -177,6 +177,8 @@ inline void solve() {
         }
     }
 
+    printf("Block2: %.4f\n", (clock() - pre)/(double)CLOCKS_PER_SEC);
+
     rep(x, 1, n) {
         assert(Left[x][0].w2 > 0);
         double www = sqrt(Left[x][0].w2);
