@@ -5,11 +5,11 @@
 #include<vector>
 #define pb push_back
 #define mk make_pair
-typedef pair<int,int> pin;
 #define rep(i, a, b) for(int i = (a); i <= (b); i++)
 #define per(i, a, b) for(int i = (a); i >= (b); i--)
 using namespace std;
 
+typedef pair<int,int> pin;
 
 inline void read(int &x){
     char ch = getchar();
