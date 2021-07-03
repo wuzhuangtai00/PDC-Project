@@ -97,10 +97,10 @@ int cnt = 0;
 
 inline info* mlc(int sz) {
     info* tmp = ptr;
-    cnt += sz;
-    if(cnt > maxm) {
-        assert(0);
-    }
+    // cnt += sz;
+    // if(cnt > maxm) {
+        // assert(0);
+    // }
     ptr = ptr + sz;
     return tmp;
 }
@@ -202,14 +202,14 @@ inline void solve() {
                 cntL++;
                 L[cntL] = mk(mk(y, x), d);
                 rep(i, 0, upper[y] - 1) {
-                    assert(Right[x][i].w1 == Right[y][i].w1);
+                    // assert(Right[x][i].w1 == Right[y][i].w1);
                     Right[y][i].w2 -= Right[x][i].w2 * d;
                 }
                 int wpos = 0; int iter = poscnt - 1;
                 // printf("%d %d\n", upper[x], upper[y]);
                 rep(i, upper[y], upper[x] - 1) {
                     // printf("%d %d\n", Left[y][wpos].w1, Right[x][i].w1);
-                    assert(Left[y][wpos].w1 == Right[x][i].w1);
+                    // assert(Left[y][wpos].w1 == Right[x][i].w1);
                     Left[y][wpos].w2 -= Right[x][i].w2 * d;
                     // printLeft(y, wpos);
                     wpos += stpos[poshis[iter]];
