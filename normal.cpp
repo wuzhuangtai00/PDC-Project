@@ -81,8 +81,8 @@ int main(int argc, char** argv) {
 	gettimeofday(&starts, NULL);
 	puts(argv[0]);
 	freopen(argv[1], "r", stdin);
-	l = fopen(argv[2], "w");
-	u = fopen(argv[3], "w");
+	// l = fopen(argv[2], "w");
+	// u = fopen(argv[3], "w");
 
     init();
 
