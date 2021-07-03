@@ -302,7 +302,7 @@ int main() {
 	printf("Check Ans: %.4f\n", (clock() - pre)/(double)CLOCKS_PER_SEC);
 	pre = clock();
 
-	output();
+	// output();
 
 	printf("Output: %.4f\n", (clock() - pre)/(double)CLOCKS_PER_SEC);
 	pre = clock();
