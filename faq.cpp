@@ -56,7 +56,7 @@ inline void solve() {
 		rep(k, i + 1, n) {
 			if(fabs(a[k][i]) < eps) continue; double d = a[k][i] / a[i][i];
 			// #pragma omp for
-			int sz = nz.size() - 1
+			int sz = nz.size() - 1;
 			#pragma omp parallel for num_threads(12) schedule(dynamic)
 			for(unsigned i = 0; i <= sz; i++) {
 				#pragma omp task{
