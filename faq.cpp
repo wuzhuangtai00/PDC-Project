@@ -53,7 +53,7 @@ inline void solve() {
 		vector<int> nz; nz.clear();
 		per(j, n, i) if (fabs(a[i][j]) > eps) nz.pb(j);
 		if(fabs(a[i][i]) < eps) continue;
-		#pragma omp parallel for num_threads(12) schedule(dynamic){
+		#pragma omp parallel for num_threads(12) schedule(dynamic)
 			rep(k, i + 1, n) {
 				printf("%d %d\n", k, omp_get_thread_num());
 				if(fabs(a[k][i]) < eps) continue; double d = a[k][i] / a[i][i];
@@ -63,7 +63,7 @@ inline void solve() {
 					a[k][p] -= a[i][p] * d;
 				}
 			}
-		}
+		
 	}
 }
 struct timeval starts, endsss;
