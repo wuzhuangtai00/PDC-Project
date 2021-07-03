@@ -99,14 +99,14 @@ inline void check_ans() {
 }
 
 inline void output() {
-	printf("%d\n", L.size());
+	printf("%d\n", (int)L.size());
 	for(unsigned i = 0; i < L.size(); i++) {
 		data x = L[i];
 		printf("%d %d %.3f\n", x.x, x.y, x.v);
 	}
 
 	puts("");
-	printf("%d\n", U.size());
+	printf("%d\n", (int)U.size());
 	for(unsigned i = 0; i < U.size(); i++) {
 		data x = U[i];
 		printf("%d %d %.3f\n", x.x, x.y, x.v);
