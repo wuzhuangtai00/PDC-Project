@@ -61,24 +61,26 @@ inline void solve() {
 		}
 	}
 }
-
+struct timeval start, end;
 int main() {
-	clock_t pre = clock();
+	gettimeofday(&start, NULL);
 
     init();
 
-	printf("Init: %.4f\n", (clock() - pre)/(double)CLOCKS_PER_SEC);
-	pre = clock();
+	gettimeofday(&end, NULL);
+
+	double delta = ((end.tv_sec  - start.tv_sec) * 1000000u + 
+    	     end.tv_usec - start.tv_usec) / 1.e6;
+
+	printf("Init: %.4f\n", delta)
+
+	gettimeofday(&start, NULL);
 
     solve();
 
-	printf("Solve: %.4f\n", (clock() - pre)/(double)CLOCKS_PER_SEC);
-	pre = clock();
+	gettimeofday(&end, NULL);
 
-	// check_ans();
-
-	printf("Check Ans: %.4f\n", (clock() - pre)/(double)CLOCKS_PER_SEC);
-	pre = clock();
-
+	double delta = ((end.tv_sec  - start.tv_sec) * 1000000u + 
+    	     end.tv_usec - start.tv_usec) / 1.e6;
 	// output();
 }
