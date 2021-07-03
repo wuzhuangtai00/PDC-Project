@@ -100,7 +100,7 @@ long long cnt = 0;
 
 inline info* mlc(int sz) {
     cnt += sz;
-    if(cnt > 4000000000ll) {
+    if(cnt > 5000000000ll) {
         // ptr = pool2;
         assert(0);
     }
