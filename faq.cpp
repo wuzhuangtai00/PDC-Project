@@ -52,6 +52,7 @@ inline void solve() {
 		// printf("!%d\n", i);
 		vector<int> nz; nz.clear();
 		per(j, n, i) if (fabs(a[i][j]) > eps) nz.pb(j);
+		int sz = nz.size() - 1;
 		if(fabs(a[i][i]) < eps) continue;
 		int cnt = 0;
 		rep(k, i + 1, n) {
@@ -62,8 +63,7 @@ inline void solve() {
 			int k = a[k][i];
 			double d = a[k][i] / a[i][i];
 			// #pragma omp for
-			int sz = nz.size() - 1;
-			for(int j = 0; j <= sz; j++) {
+			for(int j = 0;  <= sz; j++) {
 				a[k][nz[j]] -= a[i][nz[j]] * d;
 			}
 		}
