@@ -2,6 +2,7 @@
 #include<cstdio>
 #include<cstdlib>
 #include<algorithm>
+#include<vector>
 #define pb push_back
 #define mk make_pair
 typedef pair<int,int> pin;
