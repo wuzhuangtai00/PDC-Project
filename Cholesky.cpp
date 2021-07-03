@@ -129,7 +129,7 @@ inline void dfs(int x, int sz) {
         }
     }
 }
-pair<pin, double> L[10000000], U[10000000];
+pair<pin, double> L[50000000], U[50000000];
 int cntL, cntU;
 int poshis[maxn];
 
