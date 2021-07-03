@@ -21,7 +21,7 @@ typedef pair<int,int> pin;
 const double eps = 1e-3;
 typedef pair<int, double> info;
 const int maxm = 2000000000;
-info pool1[3000000000ll],pool2[1000000000];
+info pool1[4000000000ll],pool2[1000000000];
 info *ptr;
 set<pin> rec;
 
