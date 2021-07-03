@@ -18,6 +18,7 @@ using namespace std;
 
 typedef pair<int,int> pin;
 
+const double eps = 1e-4;
 typedef pair<int, double> info;
 const int maxm = 100000000;
 info pool[maxm];
@@ -127,7 +128,6 @@ inline void dfs(int x, int sz) {
     }
 }
 pair<pin, double> L[maxm], U[maxm];
-const double eps = 1e-4;
 int cntL, cntU;
 int poshis[maxn];
 
