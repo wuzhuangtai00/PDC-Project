@@ -146,6 +146,7 @@ inline void solve() {
             int y = x.w1;
             int w = unions::find(y);
             if(w == i) continue;
+            printf("%d %d\n", w, i);
             parent[w] = i;
             son[i].pb(w);
             unions::setfa(w, i);
