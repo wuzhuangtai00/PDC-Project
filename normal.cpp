@@ -33,8 +33,8 @@ inline void read(int &x){
 
 int n, m;
 
-const double eps = 1e-7;
-const int maxn = 85000;
+const double eps = 1e-5;
+const int maxn = 87000;
 double a[maxn][maxn];
 set<pin> pos;
 
