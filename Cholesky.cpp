@@ -64,6 +64,7 @@ inline void init() {
     rep(i, 1, m) {
         int x, y; double z;
         read(x); read(y); scanf("%lf", &z);
+        if(fabs(z) <= eps) continue;
         if(x < y) swap(x, y);
         w[x][y] = z;
         w[y][x] = z;
