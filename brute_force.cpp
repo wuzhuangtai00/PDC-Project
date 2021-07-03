@@ -97,7 +97,10 @@ inline void check_ans() {
 	}
 	bool flag = 1;
 	for(pin w: pos) {
-		if(fabs(a[w.w1][w.w2]) > eps) flag = 0;
+		if(fabs(a[w.w1][w.w2]) > eps) {
+			printf("%d %d %.3f\n", w.w1, w.w2, a[w.w1][w.w2]);
+			flag = 0;
+		}
 	}
 	printf("%d\n", flag);
 }
