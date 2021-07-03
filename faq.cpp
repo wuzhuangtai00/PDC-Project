@@ -52,7 +52,7 @@ inline void solve() {
 		// printf("!%d\n", i);
 		vector<int> nz; nz.clear();
 		per(j, n, i) if (fabs(a[i][j]) > eps) nz.pb(j);
-		int sz = nz.size() - 1;
+		int sz = (int)nz.size() - 1;
 		if(fabs(a[i][i]) < eps) continue;
 		int cnt = 0;
 		rep(k, i + 1, n) {
