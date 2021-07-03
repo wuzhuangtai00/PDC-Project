@@ -2,6 +2,7 @@
 #include<cstdio>
 #include<cstdlib>
 #include<algorithm>
+#include<ctime>
 #include<vector>
 #include<set>
 #include<cmath>
@@ -124,11 +125,22 @@ inline void output() {
 }
 
 int main() {
+	clock_t pre = clock();
+
     init();
+
+	printf("Init: %.4f\n", (clock() - pre)/(double)CLOCKS_PER_SEC);
+	pre = clock();
 
     solve();
 
+	printf("Solve: %.4f\n", (clock() - pre)/(double)CLOCKS_PER_SEC);
+	pre = clock();
+
 	check_ans();
+
+	printf("Check Ans: %.4f\n", (clock() - pre)/(double)CLOCKS_PER_SEC);
+	pre = clock();
 
 	// output();
 }
