@@ -205,7 +205,7 @@ inline void solve() {
             // printf("%d %d %.3f\n",Left[y][curpos].w1, x, Left[y][curpos].w2);
             // putchar('!');printLeft(y, curpos);
             double d = Left[y][curpos].w2 / Left[x][0].w2;
-            if (fabs(d) > 0) {
+            if (fabs(d) > 1e-8) {
                 cntL++;
                 L[cntL] = mk(mk(y, x), d);
                 // printf("%.10f %.10f\n", Left[y][curpos].w2, Left[x][0].w2);
