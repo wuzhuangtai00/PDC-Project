@@ -28,15 +28,46 @@ inline void read(int &x){
 	x*=f;
 }
 
-int n, m;
+const int maxn = 83334;
+int n, m;   
+namespace union{
+    int fa[maxn];
+    inline void init(int n){
+        rep(i, 1, n) fa[i] = i;
+    }
+    inline int find(int x) {
+        if (fa[x] == x) return x;
+        int f = find(fa[x]);
+        fa[x] = f; return f;
+    }
+    inline void setfa(int x, int y) {
+        fa[find(x)] = find(y);
+    }
+}
+
+vector<pair<int,double> > pos[maxn];
+int parent[maxn]; //The father in the elinimation tree.
 
 inline void init() {
     read(n); read(n); read(m);
     rep(i, 1, m) {
         int x, y; double z;
         read(x); read(y); scanf("%lf", &z);
-        
+        if(x < y) swap(x, y);
+        pos[x].pb(mk(y, z));
     }
+    union::init(n);
+    rep(i, 1, n) {
+        sort(pos[i].begin(), pos[i].end());
+    }
+}
+
+inline void solve() {
+    
+}
+
+inline void check_ans() {
+
 }
 
 
