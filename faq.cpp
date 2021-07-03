@@ -51,7 +51,7 @@ inline void solve() {
 		vector<int> nz; nz.clear();
 		per(j, n, i) if (fabs(a[i][j]) > eps) nz.pb(j);
 		if(fabs(a[i][i]) < eps) continue;
-		#pragma omp parallel for num_threads(12) schedule(dynamic)
+		// #pragma omp parallel for num_threads(12) schedule(dynamic)
 		rep(k, i, n) {
 			if(fabs(a[k][i]) < eps) continue; double d = a[k][i] / a[i][i];
 			// #pragma omp for
@@ -84,5 +84,6 @@ int main() {
 	 delta = ((endsss.tv_sec  - starts.tv_sec) * 1000000u + 
     	     endsss.tv_usec - starts.tv_usec) / 1.e6;
 	printf("Solve: %.4f\n", delta);
+
 	// output();
 }
