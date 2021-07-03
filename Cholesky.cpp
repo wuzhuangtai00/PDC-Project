@@ -18,7 +18,7 @@ using namespace std;
 
 typedef pair<int,int> pin;
 
-const double eps = 1e-4;
+const double eps = 1e-3;
 typedef pair<int, double> info;
 const int maxm = 100000000;
 info pool[maxm];
@@ -180,12 +180,14 @@ inline void solve() {
         cntL++;
         L[cntL] = mk(mk(x, x), 1);
         // printRight(1, 0);
+        vector<int> nz; nz.clear();
         rep(k, 0, upper[x] - 1) {
             info w = Right[x][k];
-            // if(fabs(w.w2) > 1e-7) {
+            if(fabs(w.w2) > 1e-7) {
                 cntU++;
                 U[cntU] = mk(mk(x, w.w1), w.w2);
-            // }
+                nz.pb(k);
+            }
         }
         cntU++;
         U[cntU] = mk(mk(x, Left[x][0].w1), Left[x][0].w2);
@@ -205,9 +207,9 @@ inline void solve() {
             if (fabs(d) > 1e-7) {
                 cntL++;
                 L[cntL] = mk(mk(y, x), d);
-                rep(i, 0, upper[y] - 1) {
-                    // assert(Right[x][i].w1 == Right[y][i].w1);
-                    Right[y][i].w2 -= Right[x][i].w2 * d;
+                for(unsigned i = 0; i < nz.size(); i++) {
+                    int k = nz[i];
+                    Right[y][k].w2 -= Right[x][k].w2 * d;
                 }
                 int wpos = 0; int iter = poscnt - 1;
                 // printf("%d %d\n", upper[x], upper[y]);
@@ -268,14 +270,14 @@ inline void output() {
 	printf("%d\n", cntL);
 	rep(i, 1, cntL) {
 		pair<pin, double> x = L[i];
-		printf("%d %d %.3f\n", x.w1.w1, x.w1.w2, x.w2);
+		printf("%d %d %.8f\n", x.w1.w1, x.w1.w2, x.w2);
 	}
 
 	puts("");
 	printf("%d\n", cntU);
     rep(i, 1, cntU) {
 		pair<pin, double> x = U[i];
-		printf("%d %d %.3f\n", x.w1.w1, x.w1.w2, x.w2);
+		printf("%d %d %.8f\n", x.w1.w1, x.w1.w2, x.w2);
 	}
 }
 
@@ -292,12 +294,12 @@ int main() {
 	printf("Solve: %.4f\n", (clock() - pre)/(double)CLOCKS_PER_SEC);
 	pre = clock();
 
-	check_ans();
+	// check_ans();
 
 	printf("Check Ans: %.4f\n", (clock() - pre)/(double)CLOCKS_PER_SEC);
 	pre = clock();
 
-	// output();
+	output();
 
 	printf("Output: %.4f\n", (clock() - pre)/(double)CLOCKS_PER_SEC);
 	pre = clock();
