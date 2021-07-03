@@ -77,7 +77,7 @@ inline void init() {
         // sort(all[i].begin(), all[i].end());
         sort(pos[i].begin(), pos[i].end());
     }
-    ptr = pool;
+    ptr = pool1;
 }
 
 vector<int> son[maxn];
