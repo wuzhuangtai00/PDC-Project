@@ -17,7 +17,7 @@ inline void read(int &x){
         while(ch != '\n') ch = getchar();
         ch = getchar();
     }
-	x=0;int f=1;char ch=getchar();
+	x=0;int f=1;
 	while(ch<'0'||ch>'9'){if(ch=='-')f=-1;ch=getchar();}
 	while(ch>='0'&&ch<='9'){x=x*10+ch-'0';ch=getchar();}
 	x*=f;
