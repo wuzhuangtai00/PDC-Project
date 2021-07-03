@@ -208,8 +208,8 @@ inline void solve() {
             if (fabs(d) > 0) {
                 cntL++;
                 L[cntL] = mk(mk(y, x), d);
-                printf("%.10f %.10f\n", Left[y][curpos].w2, Left[x][0].w2);
-                printf("%.10f\n", d);
+                // printf("%.10f %.10f\n", Left[y][curpos].w2, Left[x][0].w2);
+                // printf("%.10f\n", d);
                 for(unsigned i = 0; i < nz.size(); i++) {
                     int k = nz[i]; if (k >= upper[y]) break;
                     Right[y][k].w2 -= Right[x][k].w2 * d;
