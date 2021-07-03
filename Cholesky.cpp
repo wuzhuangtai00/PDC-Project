@@ -208,6 +208,7 @@ inline void solve() {
             if (fabs(d) > 0) {
                 cntL++;
                 L[cntL] = mk(mk(y, x), d);
+                printf("%.10f\n", Left[y][curpos].w2);
                 printf("%.10f\n", d);
                 for(unsigned i = 0; i < nz.size(); i++) {
                     int k = nz[i];
