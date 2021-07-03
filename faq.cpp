@@ -73,13 +73,13 @@ int main() {
 	double delta = ((endsss.tv_sec  - starts.tv_sec) * 1000000u + 
     	     endsss.tv_usec - starts.tv_usec) / 1.e6;
 
-	printf("Init: %.4f\n", delta)
+	printf("Init: %.4f\n", delta);
 
 	gettimeofday(&starts, NULL);
 
     solve();
 
-	gettimeofday(&endsss, NULL);endsss
+	gettimeofday(&endsss, NULL);
 
 	double delta = ((endsss.tv_sec  - starts.tv_sec) * 1000000u + 
     	     ends.tv_usec - starts.tv_usec) / 1.e6;
