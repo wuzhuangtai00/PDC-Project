@@ -181,7 +181,7 @@ inline void solve() {
         assert(Left[x][0].w2 > 0);
         double www = sqrt(Left[x][0].w2);
         cntU++;
-        U[cntU] = mk(mk(x, x), www1);
+        U[cntU] = mk(mk(x, x), www);
         // printRight(1, 0);
         vector<int> nz; nz.clear();
         rep(k, 0, upper[x] - 1) {
