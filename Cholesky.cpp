@@ -21,7 +21,7 @@ typedef pair<int,int> pin;
 const double eps = 1e-3;
 typedef pair<int, double> info;
 const int maxm = 2000000000;
-info pool1[4000000000ll],pool2[1000000000];
+info pool1[4000000000ll];
 info *ptr;
 set<pin> rec;
 
@@ -100,10 +100,10 @@ int cnt = 0;
 
 inline info* mlc(int sz) {
     cnt += sz;
-    if(cnt > maxm) {
-        ptr = pool2;
+    // if(cnt > maxm) {
+        // ptr = pool2;
         // assert(0);
-    }
+    // }
     info* tmp = ptr;
     ptr = ptr + sz;
     return tmp;
