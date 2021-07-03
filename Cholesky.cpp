@@ -195,6 +195,7 @@ inline void solve() {
         int curpos = stpos[x];
 
         int poscnt = 0;
+        if(fabs(Left[x][0].w2) < 1e-9) continue;
         while(y) {
             // printf("%d\n", y);
             poshis[++poscnt] = y;
