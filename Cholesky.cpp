@@ -129,7 +129,7 @@ inline void dfs(int x, int sz) {
         }
     }
 }
-pair<pin, double> L[50000000], U[50000000];
+pair<pin, double> U[50000000];
 int cntL, cntU;
 int poshis[maxn];
 
@@ -178,10 +178,10 @@ inline void solve() {
     }
 
     rep(x, 1, n) {
-        cntL++;
         assert(Left[x][0].w2 > 0);
         double www = sqrt(Left[x][0].w2);
-        L[cntL] = mk(mk(x, x), www1);
+        cntU++;
+        U[cntU] = mk(mk(x, x), www1);
         // printRight(1, 0);
         vector<int> nz; nz.clear();
         rep(k, 0, upper[x] - 1) {
@@ -192,8 +192,6 @@ inline void solve() {
                 nz.pb(k);
             }
         }
-        cntU++;
-        U[cntU] = mk(mk(x, Left[x][0].w1), Left[x][0].w2);
         int y = parent[x];
         int curpos = stpos[x];
 
@@ -210,7 +208,6 @@ inline void solve() {
             double d = Left[y][curpos].w2 / Left[x][0].w2;
             if (fabs(d) > 1e-8) {
                 cntL++;
-                L[cntL] = mk(mk(y, x), d);
                 // printf("%.10f %.10f\n", Left[y][curpos].w2, Left[x][0].w2);
                 // printf("%.10f\n", d);
                 for(unsigned i = 0; i < nz.size(); i++) {
