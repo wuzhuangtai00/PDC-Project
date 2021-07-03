@@ -63,17 +63,17 @@ inline void solve() {
 }
 
 int main() {
-	clock_t pre = time(NULL);
+	clock_t pre = clock();
 
     init();
 
 	printf("Init: %.4f\n", (clock() - pre)/(double)CLOCKS_PER_SEC);
-	pre = time(NULL);
+	pre = clock();
 
     solve();
 
 	printf("Solve: %.4f\n", (clock() - pre)/(double)CLOCKS_PER_SEC);
-	pre = time(NULL);
+	pre = clock();
 
 	// check_ans();
 
