@@ -32,6 +32,7 @@ int n, m;
 const double eps = 1e-5;
 const int maxn = 12000;
 double a[maxn][maxn];
+double pra[maxn][maxn];
 set<pin> pos;
 
 inline void init() {
@@ -41,6 +42,8 @@ inline void init() {
         read(x); read(y); scanf("%lf", &z);
         a[x][y] = z;
 		a[y][x] = z;
+		pra[x][y] = z;
+		pra[y][x] = z;
 		pos.insert(mk(x, y));
     }
 }
@@ -92,13 +95,13 @@ inline void check_ans() {
 	}
 	rep(j, 1, n) {
 		for(int i: Ls[j]) for(int k: Ul[j]) {
-			a[i][k] -= Lm[i][j] * Um[j][k];
+			pra[i][k] -= Lm[i][j] * Um[j][k];
 		}
 	}
 	bool flag = 1;
 	for(pin w: pos) {
-		if(fabs(a[w.w1][w.w2]) > eps) {
-			printf("%d %d %.3f\n", w.w1, w.w2, a[w.w1][w.w2]);
+		if(fabs(pra[w.w1][w.w2]) > eps) {
+			printf("%d %d %.3f\n", w.w1, w.w2, pra[w.w1][w.w2]);
 			flag = 0;
 		}
 	}
