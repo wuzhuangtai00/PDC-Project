@@ -146,7 +146,7 @@ inline void solve() {
             int y = x.w1;
             int w = unions::find(y);
             if(w == i) continue;
-            printf("%d %d\n", w, i);
+            // printf("%d %d\n", w, i);
             parent[w] = i;
             son[i].pb(w);
             unions::setfa(w, i);
@@ -166,7 +166,7 @@ inline void solve() {
         // printf("%d %d\n", stpos[i], parent[i]);
     // }
     printf("Block1: %.4f\n", (clock() - pre)/(double)CLOCKS_PER_SEC);
-    
+    printf("Total Used: %lld\n", cnt);
 
     rep(i, 1, n) {
         unsigned j = 0;
