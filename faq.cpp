@@ -49,7 +49,7 @@ inline void init() {
 
 inline void solve() {
 	rep(i, 1, n) {
-		printf("!%d\n", i);
+		// printf("!%d\n", i);
 		vector<int> nz; nz.clear();
 		per(j, n, i) if (fabs(a[i][j]) > eps) nz.pb(j);
 		if(fabs(a[i][i]) < eps) continue;
