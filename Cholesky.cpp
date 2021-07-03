@@ -100,10 +100,10 @@ int cnt = 0;
 
 inline info* mlc(int sz) {
     info* tmp = ptr;
-    // cnt += sz;
-    // if(cnt > maxm) {
-        // assert(0);
-    // }
+    cnt += sz;
+    if(cnt > maxm) {
+        assert(0);
+    }
     ptr = ptr + sz;
     return tmp;
 }
