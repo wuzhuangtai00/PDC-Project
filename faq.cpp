@@ -71,6 +71,8 @@ double val[maxn];
 
 struct timeval starts, endsss;
 
+struct timeval starts1, endsss1;
+
 inline void solve() {
 	fprintf(l, "%d\n", n);
 	fprintf(u, "%d\n", n);
@@ -88,7 +90,9 @@ inline void solve() {
 
 	double delta = ((endsss.tv_sec  - starts.tv_sec) * 1000000u + 
     	     endsss.tv_usec - starts.tv_usec) / 1.e6;
-	printf("Block1: %.4f\n", delta);
+	printf("Pre: %.4f\n", delta);
+
+	double delta_1 = 0;
 
 	rep(i, 1, n) {
 		int cnt = 0, x = i;
@@ -109,6 +113,10 @@ inline void solve() {
 		if(a[i][i] == 0) continue;
 		int hr = 0;
 		rep(p, 2, cnt) if(fabs(a[cur[p]][i])>=1e-3) par[++hr] = cur[p];
+		// total_delta
+
+		gettimeofday(&starts1, NULL);
+
 		#pragma omp parallel for num_threads(12) schedule(static)
 		rep(p, 1, hr) {
 			int k = par[p];
@@ -120,7 +128,14 @@ inline void solve() {
 			}	
 		}
 		
+		gettimeofday(&endsss1, NULL);
+
+		delta_1 += ((endsss1.tv_sec  - starts1.tv_sec) * 1000000u + 
+    	     endsss1.tv_usec - starts1.tv_usec) / 1.e6;
+
 	}
+
+	printf("Block1: %.4f\n", delta_1);
 }
 int main(int argc, char** argv) {
 	gettimeofday(&starts, NULL);
