@@ -114,7 +114,7 @@ inline void solve() {
 		if(a[i][i] == 0) continue;
 		int hr = 0;
 		rep(p, 2, cnt) if(fabs(a[cur[p]][i])>=1e-3) par[++hr] = cur[p];
-		int k = 3;
+		int k = 6;
 		int curpos[k + 2]; memset(curpos, 0, sizeof(curpos));
 		int Bl = (hr - 1) / k + 1;
 		rep(t, 1, k + 1) {
