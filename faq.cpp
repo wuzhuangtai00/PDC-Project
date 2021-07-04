@@ -106,11 +106,11 @@ inline void solve() {
 		rep(p, 1, hr) {
 			int k = par[p];
 			double d = a[k][i] / a[i][i];
-			fprintf(l, "%d %d %.15lf\n", k, i, d);
+			// fprintf(l, "%d %d %.15lf\n", k, i, d);
 			rep(t, 1, cnm){
 				int j = nmsl[t];
 				a[k][j] -= val[t] * d;
-			}
+			}	
 		}
 		
 	}
