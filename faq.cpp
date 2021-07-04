@@ -105,7 +105,7 @@ inline void solve() {
 			// if (a[k][i] == 0) continue;
 			double d = a[k][i] / a[i][i];
 			// fprintf(l, "%d %d %.20lf\n", k, i, d);
-			#pragma omp parallel 
+			#pragma omp parallel for num_threads(12) schedule(dynamic, 1)
 			rep(t, 1, cnm){
 				int j = nmsl[t];
 				a[k][j] -= a[i][j] * d;
