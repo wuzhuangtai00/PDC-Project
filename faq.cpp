@@ -110,7 +110,7 @@ inline void solve() {
 			int k = vvv[p];
 			double d = a[k][i] / a[i][i];
 			fprintf(l, "%d %d %.20lf\n", k, i, d);
-#pragma omp parallel for
+// #pragma omp parallel for
 			rep(t, 1, cnm){
 				// int j = nmsl[t];
 				a[k][nmsl[t]] -= a[i][nmsl[t]] * d;
