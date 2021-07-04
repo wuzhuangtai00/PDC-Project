@@ -87,6 +87,7 @@ inline void solve() {
 			cur[++cnt] = x;
 			x = parent[x];
 		}int cnm = 0, j;
+		#pragma omp parallel for num_threads(12)
 		rep(p, 1, cnt) {
 			j = cur[p];
 			if (fabs(a[i][j])>1e-7){
