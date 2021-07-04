@@ -120,7 +120,8 @@ inline void solve() {
 {
 #pragma omp sections
 {
-	#pragma omp section{
+	#pragma omp section
+	{
 			rep(p, 1, hr / 2) {
 				int k = par[p];
 				double d = a[k][i] / a[i][i];
@@ -131,7 +132,8 @@ inline void solve() {
 				}	
 			}
 	}
-	#pragma omp section{
+	#pragma omp section
+	{
 			rep(p, hr / 2 + 1, hr) {
 				int k = par[p];
 				double d = a[k][i] / a[i][i];
