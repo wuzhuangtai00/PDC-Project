@@ -35,7 +35,7 @@ int n, m;
 
 const double eps = 1e-2;
 const int maxn = 88000;
-float a[maxn][maxn], res[maxn][maxn];
+double a[maxn][maxn], res[maxn][maxn];
 vector<pair<int,double> > Lh[maxn], Ur[maxn];
 
 inline void init() {
@@ -63,12 +63,12 @@ int cur[maxn];
 inline void solve() {
 	rep(j, 1, n) {
 		for(pair<int,double> x: Lh[j]) for(pair<int,double> y: Ur[j]) {
-			res[x.w1][y.w1] += (float)x.w2 * (float)y.w2;
+			res[x.w1][y.w1] += x.w2 * y.w2;
 		}
 	}
 	bool flag = 1;
 	rep(i, 1, n) rep(j, 1, n) {
-		if (fabs((res[i][j] - a[i][j]) / max(fabs(a[i][j]), (float)	
+		if (fabs((res[i][j] - a[i][j]) / max(fabs(a[i][j]), 	
 		1.)) > eps) {
 			printf("%.10f %.10f\n", res[i][j], a[i][j]);
 			flag = 0; break;
