@@ -103,18 +103,17 @@ inline void solve() {
 			int k = cur[p];
 			if(fabs(a[k][i])>1e-6) vvv[++res] = k;
 		}
-		#pragma omp parallel for num_threads(12) schedule(static)
+#pragma omp parallel for num_threads(12) schedule(static)
 		rep(p, 1, res) {
+#pragma omp task{
 			int k = vvv[p];
-			// if(fabs(a[k][i])<1e-6) continue;
-			// if (fabs(a[k][i] / a[i][i]) < 1e-10) continue;
-			// if (a[k][i] == 0) continue;
 			double d = a[k][i] / a[i][i];
 			fprintf(l, "%d %d %.20lf\n", k, i, d);
 			rep(t, 1, cnm){
 				int j = nmsl[t];
 				a[k][j] -= a[i][j] * d;
 			}
+		}
 		}
 		
 	}
