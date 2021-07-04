@@ -88,16 +88,12 @@ inline void solve() {
 			x = parent[x];
 		}int cnm = 0, j;
 		rep(p, 1, cnt) {
-// #pragma task
-// {
 			j = cur[p];
 			if (fabs(a[i][j])>1e-7){
 				fprintf(u, "%d %d %.20lf\n", i, j, a[i][j]);
 				nmsl[++cnm] = j;
 			}
 		}
-// }
-		// printf("%d\n", cnm);
 		fprintf(l, "%d %d %.12f\n", i, i, 1.0);
 		if(fabs(a[i][i]) < eps) continue;
 		if(a[i][i] == 0) continue;
@@ -110,9 +106,7 @@ inline void solve() {
 			int k = vvv[p];
 			double d = a[k][i] / a[i][i];
 			fprintf(l, "%d %d %.20lf\n", k, i, d);
-// #pragma omp parallel for
 			rep(t, 1, cnm){
-				// int j = nmsl[t];
 				a[k][nmsl[t]] -= a[i][nmsl[t]] * d;
 			}
 		}
