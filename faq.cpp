@@ -68,6 +68,9 @@ inline void init() {
 }
 int cur[maxn], parent[maxn], nmsl[maxn], par[maxn];
 double val[maxn];
+
+struct timeval starts, endsss;
+
 inline void solve() {
 	fprintf(l, "%d\n", n);
 	fprintf(u, "%d\n", n);
@@ -80,12 +83,16 @@ inline void solve() {
             unions::setfa(w, i);
         }
     }
-	// rep(i,1,n)parent[i] = i+1;parent[n] = 0;
+
+	gettimeofday(&endsss, NULL);
+
+	double delta = ((endsss.tv_sec  - starts.tv_sec) * 1000000u + 
+    	     endsss.tv_usec - starts.tv_usec) / 1.e6;
+	printf("Block1: %.4f\n", delta);
+
 	rep(i, 1, n) {
-		// printf("!%d\n", i);
 		int cnt = 0, x = i;
 		while(x) {
-			// printf("%d\n", x);
 			cur[++cnt] = x;
 			x = parent[x];
 		}int cnm = 0;
@@ -102,11 +109,11 @@ inline void solve() {
 		if(a[i][i] == 0) continue;
 		int hr = 0;
 		rep(p, 2, cnt) if(fabs(a[cur[p]][i])>=1e-3) par[++hr] = cur[p];
-		#pragma omp parallel for num_threads(12) schedule(static)
+		#pragma omp parallel for num_threads(12) schedule(static, 10)
 		rep(p, 1, hr) {
 			int k = par[p];
 			double d = a[k][i] / a[i][i];
-			// fprintf(l, "%d %d %.15lf\n", k, i, d);
+			fprintf(l, "%d %d %.15lf\n", k, i, d);
 			rep(t, 1, cnm){
 				int j = nmsl[t];
 				a[k][j] -= val[t] * d;
@@ -115,7 +122,6 @@ inline void solve() {
 		
 	}
 }
-struct timeval starts, endsss;
 int main(int argc, char** argv) {
 	gettimeofday(&starts, NULL);
 	puts(argv[0]);
