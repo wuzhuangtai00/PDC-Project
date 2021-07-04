@@ -34,7 +34,7 @@ inline void read(int &x){
 int n, m;
 
 const double eps = 1e-3;
-const int maxn = 85000;
+const int maxn = 25000;
 double a[maxn][maxn], res[maxn][maxn];
 vector<pair<int,double> > Lh[maxn], Ur[maxn];
 
