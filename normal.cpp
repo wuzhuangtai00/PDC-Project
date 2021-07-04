@@ -34,7 +34,7 @@ inline void read(int &x){
 int n, m;
 
 const double eps = 1e-5;
-const int maxn = 87000;
+const int maxn = 20000;
 double a[maxn][maxn];
 vector<int> pos[maxn];
 
@@ -140,7 +140,7 @@ int main(int argc, char** argv) {
     	     endsss.tv_usec - starts.tv_usec) / 1.e6;
 	printf("Solve: %.4f\n", delta);
 
-	fclose(l);
-	fclose(u);
+	// fclose(l);
+	// fclose(u);
 	// output();
 }
