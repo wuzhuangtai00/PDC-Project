@@ -6,6 +6,7 @@
 #include<vector>
 #include<set>
 #include<cmath>
+#include<cstring>
 #include<sys/time.h>
 #define rep(i, a, b) for(int i = (a); i <= (b); i++)
 #define per(i, a, b) for(int i = (a); i >= (b); i--)
@@ -103,12 +104,12 @@ inline void solve() {
 		rep(p, 1, cnt) {
 			int j = cur[p];
 			if (fabs(a[i][j])>1e-3){
-				// fprintf(u, "%d %d %.15lf\n", i, j, a[i][j]);
+				fprintf(u, "%d %d %.15lf\n", i, j, a[i][j]);
 				nmsl[++cnm] = j;
 				val[cnm] = a[i][j];
 			}
 		}
-		// fprintf(l, "%d %d %.12f\n", i, i, 1.0);
+		fprintf(l, "%d %d %.12f\n", i, i, 1.0);
 		if(fabs(a[i][i]) < eps) continue;
 		if(a[i][i] == 0) continue;
 		int hr = 0;
@@ -132,7 +133,7 @@ inline void solve() {
 			rep(p, curpos[1], curpos[2] - 1) {
 				int k = par[p];
 				double d = a[k][i] / a[i][i];
-				// fprintf(l, "%d %d %.15lf\n", k, i, d);
+				fprintf(l, "%d %d %.15lf\n", k, i, d);
 				rep(t, 1, cnm){
 					int j = nmsl[t];
 					a[k][j] -= val[t] * d;
@@ -144,7 +145,7 @@ inline void solve() {
 			rep(p, curpos[2], curpos[3] - 1) {
 				int k = par[p];
 				double d = a[k][i] / a[i][i];
-				// fprintf(l, "%d %d %.15lf\n", k, i, d);
+				fprintf(l, "%d %d %.15lf\n", k, i, d);
 				rep(t, 1, cnm){
 					int j = nmsl[t];
 					a[k][j] -= val[t] * d;
@@ -156,7 +157,7 @@ inline void solve() {
 			rep(p, curpos[3], curpos[4] - 1) {
 				int k = par[p];
 				double d = a[k][i] / a[i][i];
-				// fprintf(l, "%d %d %.15lf\n", k, i, d);
+				fprintf(l, "%d %d %.15lf\n", k, i, d);
 				rep(t, 1, cnm){
 					int j = nmsl[t];
 					a[k][j] -= val[t] * d;
