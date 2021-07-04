@@ -116,16 +116,34 @@ inline void solve() {
 
 		gettimeofday(&starts1, NULL);
 
-		// #pragma omp parallel for num_threads(12) schedule(static)
-		rep(p, 1, hr) {
-			int k = par[p];
-			double d = a[k][i] / a[i][i];
-			// fprintf(l, "%d %d %.15lf\n", k, i, d);
-			rep(t, 1, cnm){
-				int j = nmsl[t];
-				a[k][j] -= val[t] * d;
-			}	
-		}
+#pragma omp parallel num_threads(2) 
+{
+#pragma omp sections
+{
+	#pragma omp section{
+			rep(p, 1, hr / 2) {
+				int k = par[p];
+				double d = a[k][i] / a[i][i];
+				// fprintf(l, "%d %d %.15lf\n", k, i, d);
+				rep(t, 1, cnm){
+					int j = nmsl[t];
+					a[k][j] -= val[t] * d;
+				}	
+			}
+	}
+	#pragma omp section{
+			rep(p, hr / 2 + 1, hr) {
+				int k = par[p];
+				double d = a[k][i] / a[i][i];
+				// fprintf(l, "%d %d %.15lf\n", k, i, d);
+				rep(t, 1, cnm){
+					int j = nmsl[t];
+					a[k][j] -= val[t] * d;
+				}	
+			}
+
+	}
+}
 		
 		gettimeofday(&endsss1, NULL);
 
