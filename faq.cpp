@@ -82,7 +82,7 @@ inline void solve() {
     }
 	// rep(i,1,n)parent[i] = i+1;parent[n] = 0;
 	rep(i, 1, n) {
-		// printf("!%d\n", i);
+		printf("!%d\n", i);
 		int cnt = 0, x = i;
 		while(x) {
 			// printf("%d\n", x);
