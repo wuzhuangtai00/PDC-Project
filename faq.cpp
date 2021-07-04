@@ -87,12 +87,10 @@ inline void solve() {
 			cur[++cnt] = x;
 			x = parent[x];
 		}int cnm = 0, j;
-		#pragma omp parallel for num_threads(12)
 		rep(p, 1, cnt) {
 			j = cur[p];
 			if (fabs(a[i][j])>1e-7){
 				fprintf(u, "%d %d %.20lf\n", i, j, a[i][j]);
-				#pragma omp critical
 				nmsl[++cnm] = j;
 			}
 		}
@@ -104,6 +102,7 @@ inline void solve() {
 			int k = cur[p];
 			if(fabs(a[k][i])>1e-6) vvv[++res] = k;
 		}
+		#pragma omp parallel for num_threads(12)
 		rep(p, 1, res) {
 			int k = vvv[p];
 			double d = a[k][i] / a[i][i];
