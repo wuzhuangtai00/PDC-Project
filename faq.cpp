@@ -119,7 +119,7 @@ inline void solve() {
 		int Bl = (hr - 1) / k + 1;
 		rep(t, 1, k + 1) {
 			curpos[t] = (t - 1) * Bl + 1;
-			curpos[t] = min(curpos[t], hr);
+			curpos[t] = min(curpos[t], hr + 1);
 		}
 
 		gettimeofday(&starts1, NULL);
