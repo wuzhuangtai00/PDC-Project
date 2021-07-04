@@ -63,7 +63,7 @@ int cur[maxn];
 inline void solve() {
 	rep(j, 1, n) {
 		for(pair<int,double> x: Lh[j]) for(pair<int,double> y: Ur[j]) {
-			res[x.w1][y.w1] += x.w2 * y.w2;
+			res[x.w1][y.w1] += (float)x.w2 * (float)y.w2;
 		}
 	}
 	bool flag = 1;
