@@ -69,7 +69,7 @@ inline void solve() {
 	bool flag = 1;
 	rep(i, 1, n) rep(j, 1, n) {
 		if (fabs(a[i][j]) > eps) {
-			printf("%.10f %.10f\n", res[i][j], a[i][j]);
+			printf("%.10f\n", a[i][j]);
 			flag = 0; break;
 		}
 	}
