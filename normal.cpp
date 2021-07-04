@@ -34,7 +34,7 @@ inline void read(int &x){
 int n, m;
 
 const double eps = 1e-5;
-const int maxn = 20000;
+const int maxn = 86000;
 double a[maxn][maxn];
 vector<int> pos[maxn];
 
@@ -91,17 +91,17 @@ inline void solve() {
 		rep(p, 1, cnt) {
 			int j = cur[p];
 			if (fabs(a[i][j])>1e-7){
-				// fprintf(u, "%d %d %.20lf\n", i, j, a[i][j]);
+				fprintf(u, "%d %d %.20lf\n", i, j, a[i][j]);
 				nmsl[++cnm] = j;
 			}
 		}
-		// fprintf(l, "%d %d %.12f\n", i, i, 1.0);
+		fprintf(l, "%d %d %.12f\n", i, i, 1.0);
 		if(fabs(a[i][i]) < eps) continue;
 		if(a[i][i] == 0) continue;
 		rep(p, 2, cnt) {
 			int k = cur[p];
 			if(fabs(a[k][i])<1e-6) continue;
-			// if (fabs(a[k][i] / a[i][i]) < 1e-10) continue;
+			if (fabs(a[k][i] / a[i][i]) < 1e-10) continue;
 			// if (a[k][i] == 0) continue;
 			double d = a[k][i] / a[i][i];
 			// fprintf(l, "%d %d %.20lf\n", k, i, d);
