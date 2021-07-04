@@ -91,7 +91,7 @@ inline void solve() {
 		rep(p, 1, cnt) {
 			int j = cur[p];
 			if (fabs(a[i][j])>1e-7){
-				// fprintf(u, "%d %d %.15lf\n", i, j, a[i][j]);
+				fprintf(u, "%d %d %.15lf\n", i, j, a[i][j]);
 				nmsl[++cnm] = j;
 			}
 		}
@@ -104,7 +104,7 @@ inline void solve() {
 			// if (fabs(a[k][i] / a[i][i]) < 1e-10) continue;
 			// if (a[k][i] == 0) continue;
 			double d = a[k][i] / a[i][i];
-			// fprintf(l, "%d %d %.15lf\n", k, i, d);
+			fprintf(l, "%d %d %.15lf\n", k, i, d);
 			rep(t, 1, cnm){
 				int j = nmsl[t];
 				a[k][j] -= a[i][j] * d;
