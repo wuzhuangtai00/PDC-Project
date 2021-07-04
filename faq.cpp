@@ -69,6 +69,17 @@ inline void init() {
 }
 int cur[maxn], parent[maxn], nmsl[maxn], vvv[maxn];
 double val[maxn];
+int res = 0, cnm;
+			rep(t, 1, cnm){
+				a[k][nmsl[t]] -= val[t] * d;
+			}
+
+inline void reduct(int k) {
+	rep(t, 1, cnm){
+		a[k][nmsl[t]] -= val[t] * d;
+	}
+}
+
 inline void solve() {
 	fprintf(l, "%d\n", n);
 	fprintf(u, "%d\n", n);
@@ -87,9 +98,9 @@ inline void solve() {
 		while(x) {
 			cur[++cnt] = x;
 			x = parent[x];
-		}int cnm = 0, j;
+		}
 		rep(p, 1, cnt) {
-			j = cur[p];
+			int j = cur[p];
 			if (fabs(a[i][j])>1e-7){
 				fprintf(u, "%d %d %.20lf\n", i, j, a[i][j]);
 				nmsl[++cnm] = j;
@@ -99,22 +110,16 @@ inline void solve() {
 		fprintf(l, "%d %d %.12f\n", i, i, 1.0);
 		if(fabs(a[i][i]) < eps) continue;
 		if(a[i][i] == 0) continue;
-		int res = 0;
 		rep(p, 2, cnt) {
 			int k = cur[p];
 			if(fabs(a[k][i])>1e-6) vvv[++res] = k;
 		}
 		#pragma omp parallel for num_threads(3)
 		rep(p, 1, res) {
-			#pragma task
-			{
 			int k = vvv[p];
 			double d = a[k][i] / a[i][i];
 			fprintf(l, "%d %d %.20lf\n", k, i, d);
-			rep(t, 1, cnm){
-				a[k][nmsl[t]] -= val[t] * d;
-			}
-			}
+			reduct(k);
 		}
 
 	}
