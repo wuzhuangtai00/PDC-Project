@@ -80,7 +80,7 @@ inline void solve() {
         }
     }
 
-#pragma omp parallel num_threads(12) schedule(static){
+#pragma omp parallel num_threads(12) {
 #pragma omp single{
 	rep(i, 1, n) {
 		int cnt = 0, x = i;
