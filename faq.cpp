@@ -112,7 +112,7 @@ inline void solve() {
 			double d = a[k][i] / a[i][i];
 			fprintf(l, "%d %d %.20lf\n", k, i, d);
 			rep(t, 1, cnm){
-				a[k][nmsl[t]] -= val[nmsl[t]] * d;
+				a[k][nmsl[t]] -= val[t] * d;
 			}
 			}
 		}
