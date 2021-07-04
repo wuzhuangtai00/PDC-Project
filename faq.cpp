@@ -70,7 +70,7 @@ inline void init() {
 int cur[maxn], parent[maxn], nmsl[maxn], vvv[maxn];
 double val[maxn];
 int res = 0, cnm;
-inline void reduct(int k) {
+inline void reduct(int k, double d) {
 	rep(t, 1, cnm){
 		a[k][nmsl[t]] -= val[t] * d;
 	}
@@ -117,7 +117,7 @@ inline void solve() {
 			double d = a[k][i] / a[i][i];
 			fprintf(l, "%d %d %.20lf\n", k, i, d);
 			#pragma omp task
-			reduct(k);
+			reduct(k, d);
 		}
 
 	}
