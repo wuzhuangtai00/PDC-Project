@@ -90,7 +90,7 @@ inline void solve() {
 		}int cnm = 0;
 		rep(p, 1, cnt) {
 			int j = cur[p];
-			if (fabs(a[i][j])>1e-7){
+			if (fabs(a[i][j])>1e-5){
 				fprintf(u, "%d %d %.15lf\n", i, j, a[i][j]);
 				nmsl[++cnm] = j;
 			}
