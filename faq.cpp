@@ -70,10 +70,6 @@ inline void init() {
 int cur[maxn], parent[maxn], nmsl[maxn], vvv[maxn];
 double val[maxn];
 int res = 0, cnm;
-			rep(t, 1, cnm){
-				a[k][nmsl[t]] -= val[t] * d;
-			}
-
 inline void reduct(int k) {
 	rep(t, 1, cnm){
 		a[k][nmsl[t]] -= val[t] * d;
@@ -99,6 +95,7 @@ inline void solve() {
 			cur[++cnt] = x;
 			x = parent[x];
 		}
+		cnm = res = 0;
 		rep(p, 1, cnt) {
 			int j = cur[p];
 			if (fabs(a[i][j])>1e-7){
