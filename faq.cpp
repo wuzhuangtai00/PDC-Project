@@ -34,7 +34,7 @@ inline void read(int &x){
 int n, m;
 
 const double eps = 1e-5;
-const int maxn = 20000;
+const int maxn = 86000;
 double a[maxn][maxn];
 vector<int> pos[maxn];
 
@@ -98,7 +98,6 @@ inline void solve() {
 		// fprintf(l, "%d %d %.12f\n", i, i, 1.0);
 		if(fabs(a[i][i]) < eps) continue;
 		if(a[i][i] == 0) continue;
-		#pragma omp parallel for num_thread(12) schedule(dynamic, 1)
 		rep(p, 2, cnt) {
 			int k = cur[p];
 			if(fabs(a[k][i])<1e-6) continue;
@@ -106,6 +105,7 @@ inline void solve() {
 			// if (a[k][i] == 0) continue;
 			double d = a[k][i] / a[i][i];
 			// fprintf(l, "%d %d %.20lf\n", k, i, d);
+			#pragma omp parallel 
 			rep(t, 1, cnm){
 				int j = nmsl[t];
 				a[k][j] -= a[i][j] * d;
