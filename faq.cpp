@@ -106,7 +106,7 @@ inline void solve() {
 		#pragma omp parallel for num_threads(12) schedule(static)
 		rep(p, 1, res) {
 			int k = vvv[p];
-			if(fabs(a[k][i])<1e-6) continue;
+			// if(fabs(a[k][i])<1e-6) continue;
 			// if (fabs(a[k][i] / a[i][i]) < 1e-10) continue;
 			// if (a[k][i] == 0) continue;
 			double d = a[k][i] / a[i][i];
