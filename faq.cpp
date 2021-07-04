@@ -116,7 +116,7 @@ inline void solve() {
 
 		gettimeofday(&starts1, NULL);
 
-		#pragma omp parallel for num_threads(12) schedule(static)
+		// #pragma omp parallel for num_threads(12) schedule(static)
 		rep(p, 1, hr) {
 			int k = par[p];
 			double d = a[k][i] / a[i][i];
