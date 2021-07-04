@@ -106,6 +106,7 @@ inline void solve() {
 		if(fabs(a[i][i]) < eps) continue;
 		if(a[i][i] == 0) continue;
 		int res = 0;
+		#pragma omp for
 		rep(p, 2, cnt) {
 			int k = cur[p];
 			if(fabs(a[k][i])>1e-6) vvv[++res] = k;
