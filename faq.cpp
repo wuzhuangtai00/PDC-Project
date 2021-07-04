@@ -113,16 +113,23 @@ inline void solve() {
 		if(a[i][i] == 0) continue;
 		int hr = 0;
 		rep(p, 2, cnt) if(fabs(a[cur[p]][i])>=1e-3) par[++hr] = cur[p];
+		int k = 3;
+		int curpos[k + 2]; memset(curpos, 0, sizeof(curpos));
+		int Bl = (hr - 1) / k + 1;
+		rep(i, 1, k + 1) {
+			curpos[i] = (i - 1) * Bl + 1;
+			curpos[i] = min(curpos[i], hr);
+		}
 
 		gettimeofday(&starts1, NULL);
 
-#pragma omp parallel num_threads(2) 
+#pragma omp parallel num_threads(3) 
 {
 #pragma omp sections
 {
 	#pragma omp section
 	{
-			rep(p, 1, hr / 2) {
+			rep(p, curpos[1], curpos[2] - 1) {
 				int k = par[p];
 				double d = a[k][i] / a[i][i];
 				// fprintf(l, "%d %d %.15lf\n", k, i, d);
@@ -134,7 +141,7 @@ inline void solve() {
 	}
 	#pragma omp section
 	{
-			rep(p, hr / 2 + 1, hr) {
+			rep(p, curpos[2], curpos[3] - 1) {
 				int k = par[p];
 				double d = a[k][i] / a[i][i];
 				// fprintf(l, "%d %d %.15lf\n", k, i, d);
@@ -143,7 +150,18 @@ inline void solve() {
 					a[k][j] -= val[t] * d;
 				}	
 			}
-
+	}
+	#pragma omp section
+	{
+			rep(p, curpos[3], curpos[4] - 1) {
+				int k = par[p];
+				double d = a[k][i] / a[i][i];
+				// fprintf(l, "%d %d %.15lf\n", k, i, d);
+				rep(t, 1, cnm){
+					int j = nmsl[t];
+					a[k][j] -= val[t] * d;
+				}	
+			}
 	}
 }
 }
