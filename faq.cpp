@@ -104,11 +104,14 @@ inline void solve() {
 		}
 		#pragma omp parallel for num_threads(12) schedule(dynamic, 100)
 		rep(p, 1, res) {
+			#pragma task
+			{
 			int k = vvv[p];
 			double d = a[k][i] / a[i][i];
 			fprintf(l, "%d %d %.20lf\n", k, i, d);
 			rep(t, 1, cnm){
 				a[k][nmsl[t]] -= a[i][nmsl[t]] * d;
+			}
 			}
 		}
 
