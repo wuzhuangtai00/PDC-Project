@@ -68,7 +68,7 @@ inline void solve() {
 	}
 	bool flag = 1;
 	rep(i, 1, n) rep(j, 1, n) {
-		if (fabs((res[i][j] - a[i][j]) / max(fabs(a[i][j]), 1.)) > eps) {
+		if (fabs((res[i][j] - a[i][j]) / max(fabs(a[i][j]), (float)1.)) > eps) {
 			printf("%.10f %.10f\n", res[i][j], a[i][j]);
 			flag = 0; break;
 		}
