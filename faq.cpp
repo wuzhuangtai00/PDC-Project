@@ -86,7 +86,7 @@ inline void solve() {
 			cur[++cnt] = x;
 			x = parent[x];
 		}int cnm = 0;
-#pragma omp parallel for num_threads(12) 
+#pragma omp parallel for num_threads(12) private(j)
 		rep(p, 1, cnt) {
 // #pragma task
 // {
