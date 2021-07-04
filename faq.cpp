@@ -92,6 +92,7 @@ inline void solve() {
 			j = cur[p];
 			if (fabs(a[i][j])>1e-7){
 				fprintf(u, "%d %d %.20lf\n", i, j, a[i][j]);
+				#pragma omp critical
 				nmsl[++cnm] = j;
 			}
 		}
