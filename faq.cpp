@@ -85,12 +85,12 @@ inline void solve() {
 		while(x) {
 			cur[++cnt] = x;
 			x = parent[x];
-		}int cnm = 0;
+		}int cnm = 0, j;
 #pragma omp parallel for num_threads(12) private(j)
 		rep(p, 1, cnt) {
 // #pragma task
 // {
-			int j = cur[p];
+			j = cur[p];
 			if (fabs(a[i][j])>1e-7){
 				#pragma critical
 				{
