@@ -101,7 +101,7 @@ inline void solve() {
 		if(fabs(a[i][i]) < eps) continue;
 		if(a[i][i] == 0) continue;
 		int hr = 0;
-		rep(i, 2, cnt) if(fabs(a[cur[p]][i])>=1e-3) par[++hr] = curp;
+		rep(p, 2, cnt) if(fabs(a[cur[p]][i])>=1e-3) par[++hr] = cur[p];
 		#pragma omp parallel for num_threads(12) schedule(static)
 		rep(p, 1, hr) {
 			int k = par[p];
