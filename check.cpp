@@ -35,7 +35,7 @@ int n, m;
 
 const double eps = 1e-3;
 const int maxn = 88000;
-double a[maxn][maxn], res[maxn][maxn];
+float a[maxn][maxn], res[maxn][maxn];
 vector<pair<int,double> > Lh[maxn], Ur[maxn];
 
 inline void init() {
