@@ -101,10 +101,10 @@ inline void solve() {
 		rep(p, 2, cnt) {
 			int k = cur[p];
 			if(fabs(a[k][i])<1e-6) continue;
-			if (fabs(a[k][i] / a[i][i]) < 1e-10) continue;
+			// if (fabs(a[k][i] / a[i][i]) < 1e-10) continue;
 			// if (a[k][i] == 0) continue;
 			double d = a[k][i] / a[i][i];
-			// fprintf(l, "%d %d %.20lf\n", k, i, d);
+			fprintf(l, "%d %d %.20lf\n", k, i, d);
 			rep(t, 1, cnm){
 				int j = nmsl[t];
 				a[k][j] -= a[i][j] * d;
