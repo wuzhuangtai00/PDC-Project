@@ -109,7 +109,7 @@ inline void solve() {
 		if(a[i][i] == 0) continue;
 		int hr = 0;
 		rep(p, 2, cnt) if(fabs(a[cur[p]][i])>=1e-3) par[++hr] = cur[p];
-		#pragma omp parallel for num_threads(12) schedule(static, 10)
+		#pragma omp parallel for num_threads(12) schedule(static)
 		rep(p, 1, hr) {
 			int k = par[p];
 			double d = a[k][i] / a[i][i];
