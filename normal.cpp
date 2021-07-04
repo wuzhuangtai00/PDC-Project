@@ -95,7 +95,6 @@ inline void solve() {
 				nmsl[++cnm] = j;
 			}
 		}
-		// printf("%d\n", cnm);
 		fprintf(l, "%d %d %.12f\n", i, i, 1.0);
 		if(fabs(a[i][i]) < eps) continue;
 		if(a[i][i] == 0) continue;
