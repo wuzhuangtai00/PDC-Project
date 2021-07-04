@@ -66,7 +66,7 @@ inline void init() {
     }
 	unions::init(n);
 }
-int cur[maxn], parent[maxn], nmsl[maxn];
+int cur[maxn], parent[maxn], nmsl[maxn], vvv[maxn];
 inline void solve() {
 	fprintf(l, "%d\n", n);
 	fprintf(u, "%d\n", n);
@@ -98,14 +98,19 @@ inline void solve() {
 		fprintf(l, "%d %d %.12f\n", i, i, 1.0);
 		if(fabs(a[i][i]) < eps) continue;
 		if(a[i][i] == 0) continue;
+		int res = 0;
 		rep(p, 2, cnt) {
 			int k = cur[p];
+			if(fabs(a[k][i])>1e-6) vvv[++res] = k;
+		}
+		#pragma omp parallel for num_threads(12) schedule(static)
+		rep(p, 1, res) {
+			int k = vvv[p];
 			if(fabs(a[k][i])<1e-6) continue;
 			// if (fabs(a[k][i] / a[i][i]) < 1e-10) continue;
 			// if (a[k][i] == 0) continue;
 			double d = a[k][i] / a[i][i];
 			fprintf(l, "%d %d %.20lf\n", k, i, d);
-			#pragma omp parallel for num_threads(12) schedule(static)
 			rep(t, 1, cnm){
 				int j = nmsl[t];
 				a[k][j] -= a[i][j] * d;
