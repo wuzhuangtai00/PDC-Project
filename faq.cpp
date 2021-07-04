@@ -102,7 +102,7 @@ inline void solve() {
 			int k = cur[p];
 			if(fabs(a[k][i])>1e-6) vvv[++res] = k;
 		}
-		#pragma omp parallel for num_threads(12)
+		#pragma omp parallel for num_threads(12) schedule(dynamic, 100)
 		rep(p, 1, res) {
 			int k = vvv[p];
 			double d = a[k][i] / a[i][i];
