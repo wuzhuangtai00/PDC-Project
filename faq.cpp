@@ -3,7 +3,7 @@
 #include<cstdlib>
 #include<algorithm>
 #include<ctime>
-#include<omp.h>
+// #include<omp.h>
 #include<vector>
 #include<set>
 #include<cmath>
@@ -35,13 +35,16 @@ int n, m;
 const double eps = 1e-5;
 const int maxn = 85000;
 double a[maxn][maxn];
-set<pin> pos;
+vector<int> pos[maxn];
 
 inline void init() {
     read(n); read(n); read(m);
     rep(i, 1, m) {
         int x, y; double z;
+		if(fabs(z) < eps) continue;
         read(x); read(y); scanf("%lf", &z);
+        if(x < y) swap(x, y);
+		pos[x].pb(y);
         a[x][y] = z;
 		a[y][x] = z;
     }
@@ -58,7 +61,7 @@ inline void solve() {
 		rep(k, i + 1, n) {
 			if(fabs(a[k][i]) > eps) cur[++cnt] = k;
 		}
-#pragma omp parallel for num_threads(12) schedule(dynamic, 1)
+// #pragma omp parallel for num_threads(12) schedule(dynamic, 1)
 		rep(j, 1, cnt) {
 			int k = cur[j];
 			double d = a[k][i] / a[i][i];

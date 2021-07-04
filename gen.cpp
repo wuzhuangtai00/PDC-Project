@@ -15,31 +15,25 @@ using namespace std;
 #define w1 first
 #define w2 second
 
-const int n = 10;
-const int maxn = 105;
+const int n = 3000;
+const int maxn = 10005;
 int a[maxn][maxn], b[maxn][maxn], c[maxn][maxn];
 
 int main(){
 	srand(time(NULL));
 	rep(i, 1, n) rep(j, 1, i) {
-		int w = rand() % 3 + 1;
-		a[i][j] = b[j][i] = w;
+		if(rand() % 100 == 0){
+			int w = rand() % 100 + 1;
+			a[i][j] = b[j][i] = w;
+		}
 	}
 	rep(i, 1, n) rep(j, 1, n) rep(k, 1, n) c[i][k] += a[i][j] * b[j][k];
-	printf("%d %d %d\n", n, n, n * (n + 1) / 2);
+	vector<pair<pair<int,int>,int> > v;
 	rep(i, 1, n) rep(j, 1, i) {
-		printf("%d %d %d\n", i, j, c[i][j]);
+		if (c[i][j]) v.pb(mk(mk(i, j), c[i][j]));
 	}
-	rep(i, 1, n) {
-		rep(j, 1, n) {
-			fprintf(stderr, "%d ", a[i][j]);
-		}
-		fprintf(stderr, "\n");
-	}
-	rep(i, 1, n) {
-		rep(j, 1, n) {
-			fprintf(stderr, "%d ", c[i][j]);
-		}
-		fprintf(stderr, "\n");
+	printf("%d %d %d\n", n, n, (int)v.size());
+	for(auto x:v) {
+		printf("%d %d %d\n", x.w1.w1, x.w1.w2, x.w2);
 	}
 }
