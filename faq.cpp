@@ -105,7 +105,7 @@ inline void solve() {
 			if(fabs(a[k][i])<1e-3) continue;
 			double d = a[k][i] / a[i][i];
 			fprintf(l, "%d %d %.15lf\n", k, i, d);
-			// #pragma omp parallel for num_threads(12) schedule(dynamic, 100)
+			#pragma omp parallel for num_threads(12) schedule(dynamic, 100)
 			rep(t, 1, cnm){
 				// #pragma omp task
 // {
