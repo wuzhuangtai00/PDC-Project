@@ -71,7 +71,7 @@ int cur[maxn], parent[maxn], nmsl[maxn], vvv[maxn];
 double val[maxn];
 int res = 0, cnm;
 inline void reduct(int k, double d) {
-	#pragma omp parallel for num_threads(3)
+	#pragma omp parallel for num_threads(12) schedule(static)
 	rep(t, 1, cnm){
 		a[k][nmsl[t]] -= val[t] * d;
 	}
