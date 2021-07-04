@@ -79,12 +79,12 @@ inline void solve() {
             unions::setfa(w, i);
         }
     }
-	// rep(i,1,n)parent[i] = i+1;parent[n] = 0;
+
+#pragma omp parallel num_threads(12) schedule(static){
+#pragma single{
 	rep(i, 1, n) {
-		// printf("!%d\n", i);
 		int cnt = 0, x = i;
 		while(x) {
-			// printf("%d\n", x);
 			cur[++cnt] = x;
 			x = parent[x];
 		}int cnm = 0;
@@ -103,9 +103,7 @@ inline void solve() {
 			int k = cur[p];
 			if(fabs(a[k][i])>1e-6) vvv[++res] = k;
 		}
-#pragma omp parallel for num_threads(12) schedule(static)
 		rep(p, 1, res) {
-#pragma omp task{
 			int k = vvv[p];
 			double d = a[k][i] / a[i][i];
 			fprintf(l, "%d %d %.20lf\n", k, i, d);
@@ -114,8 +112,7 @@ inline void solve() {
 				a[k][j] -= a[i][j] * d;
 			}
 		}
-		}
-		
+	}}
 	}
 }
 struct timeval starts, endsss;
